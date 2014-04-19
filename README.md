@@ -8,7 +8,7 @@ Linux:
 
 	apt-get install clisp
 
-Mac OS (using [Homerew](http://homebrew.com)):
+Mac OS (using [Homerew](http://brew.sh/‎)):
 
 	brew install clisp
 
