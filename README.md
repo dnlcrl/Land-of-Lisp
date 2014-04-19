@@ -1,6 +1,6 @@
 # Land of Lisp
 
-A journey into the [Land of Lisp](landoflisp.com)
+A journey into the [Land of Lisp](http://landoflisp.com)
 
 # 0. Install CLISP
 
@@ -8,7 +8,7 @@ Linux:
 
 	apt-get install clisp
 
-Mac OS (using [Homerew](homebrew.com)):
+Mac OS (using [Homerew](http://homebrew.com)):
 
 	brew install clisp
 
@@ -45,4 +45,6 @@ Try Typing **(+ 3 (* 2 4))**
 When you want to shut down CLISP, just type (quit).
 
 # 2. The Guess-My-Number Game
+
+
 
