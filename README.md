@@ -46,5 +46,13 @@ When you want to shut down CLISP, just type (quit).
 
 # 2. The Guess-My-Number Game
 
+The game is composed by three functions, *guess-my-number*, *smaller*, and *bigger*. We also need two global variables: \*small\* and \*big\*.
 
+A variable that is defined globally in Lisp is called a top-level definition.
 
+*defparameter* creates new top-level definitions:
+
+	> (defparameter *small* 1) 
+	*SMALL*
+	> (defparameter *big* 100) 
+	*BIG*
