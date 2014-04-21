@@ -62,6 +62,32 @@ In Common Lisp, functions are defined with *defun*, like this:
 	(defun function_name (arguments) 
 	...)
 
-The first function we define is guess-my-number.
+The first function we define is *guess-my-number*.
 
+	> (defun guess-my-number ()
+	 (ash (+ *small* *big*) -1))
+	GUESS-MY-NUMBER
+
+The built-in Lisp function ash looks at a number in binary form, and then shifts its binary bits to the left or right, dropping any bits lost in the process. For example, the number 11 written in binary is 1011. We can move the bits in this number to the left with ash by using 1 as the second argument. We can move the bits to the right (and lop off the bit on the end) by passing in −1 as the second argument.
+By using the ash function in guess-my-number, we are continually halving our search space of possible numbers to quickly narrow down to the final correct number.
+Now we’ll write our smaller and bigger functions.
+
+	> (defun smaller ()
+	  (setf *big* (1- (guess-my-number)))
+	  (guess-my-number))
+	SMALLER
+
+
+	> (defun bigger ()
+	  (setf *small* (1+ (guess-my-number))) 
+	  (guess-my-number))
+	BIGGER
+
+we use the setf function to change the value of our global variable \*big\*.
+Now we add the function start-over to reset our global variables:
+
+	> (defun start-over () 
+	(defparameter *small* 1)
+	(defparameter *big* 100)
+	(guess-my-number))
 
