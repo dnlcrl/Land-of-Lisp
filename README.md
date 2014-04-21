@@ -56,3 +56,12 @@ A variable that is defined globally in Lisp is called a top-level definition.
 	*SMALL*
 	> (defparameter *big* 100) 
 	*BIG*
+
+In Common Lisp, functions are defined with *defun*, like this:
+
+	(defun function_name (arguments) 
+	...)
+
+The first function we define is guess-my-number.
+
+
