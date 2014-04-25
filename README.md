@@ -91,3 +91,63 @@ Now we add the function start-over to reset our global variables:
 	(defparameter *big* 100)
 	(guess-my-number))
 
+# 3 Datatypes
+
+There are lists which are composed by cons, every data is composed by cons, 
+there are two magic built in functions to select an element in a data structure:
+*car* and *cdr*, the first will return the first element of a list, the second one will return all the other elements. They can be merged til five times, in example:
+
+	> (car '((peas carrots tomatoes) (pork beef chicken))) 
+	(PEAS CARROTS TOMATOES)
+	> (cdr '(peas carrots tomatoes)) 
+	(CARROTS TOMATOES)
+	> (cdr (car '((peas carrots tomatoes) (pork beef chicken)))) 
+	(CARROTS TOMATOES)
+	> (cdar '((peas carrots tomatoes) (pork beef chicken))) 
+	(CARROTS TOMATOES)
+
+
+# 4 Conditions
+
+Let’s look at a common list-eating function, which calculates the length of a list.
+
+	> (defun my-length (list) 
+	(if list
+	(1+ (my-length (cdr list))) 
+	0))
+	> (my-length '(list with four symbols)) 
+	4
+
+(), '(), nil and 'nil are equivalent to F.
+
+	> (eq '() nil)
+	T 
+	> (eq '() ()) 
+	T
+	> (eq '() 'nil)
+	T
+
+The if command can be used to make different things happen when things are true (such as when 1 + 2 = 3) or false (such as when 1 + 2 = 4).
+
+	> (if (= (+ 1 2) 3) 
+	'yup
+	'nope)
+	YUP
+	> (if (= (+ 1 2) 4) 
+	'yup
+	'nope)
+	NOPE
+
+The if command can also be used to check whether a list is empty: 
+	
+	> (if '(1)
+	'the-list-has-stuff-in-it 
+	'the-list-is-empty)
+
+	THE-LIST-HAS-STUFF-IN-IT
+
+	> (if '() 
+	'the-list-has-stuff-in-it 
+	'the-list-is-empty)
+	THE-LIST-IS-EMPTY
+
