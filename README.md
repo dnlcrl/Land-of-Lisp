@@ -280,4 +280,10 @@ with a bit of extra sophistication. For instance, it can compare strings with di
 	;;comparing integers against floating point numbers > (equalp 0 0.0)
 	T
 
+## 5 a Text Game Engine
+
+The Wizard's Adventure Game
+In this game, you are a wizard’s apprentice. You’ll explore the wizard’s house. When I complete the game (in Chapter 17), I’ll be able to solve puzzles and win a magical donut :grin:
+
+
 	
