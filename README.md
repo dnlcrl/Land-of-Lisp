@@ -91,7 +91,7 @@ Now we add the function start-over to reset our global variables:
 	(defparameter *big* 100)
 	(guess-my-number))
 
-## 3 Datatypes
+## 3. Datatypes
 
 There are lists which are composed by cons, every data is composed by cons, 
 there are two magic built in functions to select an element in a data structure:
@@ -107,7 +107,7 @@ there are two magic built in functions to select an element in a data structure:
 	(CARROTS TOMATOES)
 
 
-## 4 Conditions
+## 4. Conditions
 
 Let’s look at a common list-eating function, which calculates the length of a list.
 
@@ -280,10 +280,18 @@ with a bit of extra sophistication. For instance, it can compare strings with di
 	;;comparing integers against floating point numbers > (equalp 0 0.0)
 	T
 
-## 5 a Text Game Engine
+## 5. a Text Game Engine
 
 The Wizard's Adventure Game
 In this game, you are a wizard’s apprentice. You’ll explore the wizard’s house. When I complete the game (in Chapter 17), I’ll be able to solve puzzles and win a magical donut :grin:
+
+The world inside our adventure game is very simple, containing only three locations. Let’s first create a top-level variable, *nodes*, to contain descriptions of the locations that exist in our game:
+	
+	(defparameter *nodes* '((living-room (you are in the living-room. a wizard is snoring loudly on the couch.))
+	(garden (you are in a beautiful garden.
+	there is a well in front of you.))
+	(attic (you are in the attic.
+	there is a giant welding torch in the corner.))))
 
 
 	
