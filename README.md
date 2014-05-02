@@ -282,8 +282,9 @@ with a bit of extra sophistication. For instance, it can compare strings with di
 
 ## 5. Building a Text Game Engine
 
-The Wizard's Adventure Game
-In this game, you are a wizard’s apprentice. You’ll explore the wizard’s house. When I complete the game (in Chapter 17), I’ll be able to solve puzzles and win a magical donut :grin:
+### The Wizard's Adventure Game
+
+In this game, you I'll be a wizard’s apprentice. I’ll explore the wizard’s house. When I complete the game (in Chapter 17), I’ll be able to solve puzzles and win a magical donut :grin:
 
 The world inside our adventure game is very simple, containing only three locations. Let’s first create a top-level variable, *nodes*, to contain descriptions of the locations that exist in our game:
 	
@@ -293,5 +294,26 @@ The world inside our adventure game is very simple, containing only three locati
 	(attic (you are in the attic.
 	there is a giant welding torch in the corner.))))
 
+This type of structure is called an association list, or alist for short.
 
+	(defun describe-location (location nodes) (cadr (assoc location nodes)))
+
+	(defparameter *edges* '((living-room (garden west door) 
+	(attic upstairs ladder))
+	(garden (living-room east door))
+	(attic (living-room downstairs ladder))))
 	
+Using this structure, we create the describe-path function, which builds a textual description of a given edge using our symbols system.
+
+	(defun describe-path (edge)
+	`(there is a ,(caddr edge) going ,(cadr edge) from here.))
+
+This function basically returns a piece of data with small bits of calculated information inserted into it. This feature of Lisp, called quasiquoting, allows us to create chunks of data that have small pieces of Lisp code embedded in them.
+	
+	> (describe-path '(garden west door))
+	(THERE IS A DOOR GOING WEST FROM HERE.)
+
+How Quasiquoting Works:
+
+To enable quasiquoting, you must use a backquote [`] not a single quote ['] when switching from code to data mode. The describe-path function has just such a backquote in it.
+Both the single quote and backquote in Lisp “flip” a piece of code into data mode, but only a backquote can also be unquoted using the comma character, to flip back into code mode.
